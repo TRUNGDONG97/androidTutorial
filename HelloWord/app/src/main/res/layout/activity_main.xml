@@ -63,27 +63,31 @@
         android:paddingVertical="15dp" />
 
     <RelativeLayout
+        android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/login_btn_bg">
+        android:background="@drawable/login_btn_selectable_bg"
+        >
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="#FD0303"
             android:text="Đăng nhập"
-            android:textColor="#F7F4F4"
-            android:textSize="16sp"
-
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#F7F2F2"
             />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
-            android:src="@drawable/circled_right" />
+            android:src="@drawable/ic_arrow_right"
+            android:layout_margin="5dp"
+            android:tint="#F5F1F1"/>
 
     </RelativeLayout>
 
