@@ -1,0 +1,15 @@
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FDFBCB">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Thông tin cơ bản"/>
+
+</LinearLayout>
