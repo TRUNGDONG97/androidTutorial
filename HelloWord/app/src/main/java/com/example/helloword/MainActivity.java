@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvNotification;
     TextView tvLoginBtn;
     TextView tvNotificationSocial;
+    RelativeLayout rlLoginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
         tvNotificationSocial = (TextView) findViewById( R.id.tv_notification_social );
         tvNotificationSocial.setText( "Notification Social" );
 
-        RelativeLayout rlLoginBtn;
-        rlLoginBtn = findViewById( R.id.rl_Login_btn );
+
+        rlLoginBtn = findViewById( R.id.rl_login_btn );
         rlLoginBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                 if (phoneNumberLength > 9) {
                     Toast.makeText( MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT ).show();
                     Intent intent = new Intent( MainActivity.this, UpdateUserinfoActivity.class );
+                    //them dư liệu vào trong intent(nhét phonenumber vào intent)
+                    intent.putExtra( "phoneNumberPassWord", phoneNumber );
                     startActivity( intent );
                 } else {
                     Toast.makeText( MainActivity.this, "Login Failed", Toast.LENGTH_SHORT ).show();
