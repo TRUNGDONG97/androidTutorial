@@ -1,6 +1,7 @@
 package com.example.helloword;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
 
     TextView tvHello;
@@ -23,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_main );
+        setContentView( R.layout.activity_login );
 
         init();
+
 
     }
 
@@ -65,22 +67,32 @@ public class MainActivity extends AppCompatActivity {
         rlLoginBtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText( MainActivity.this, "Hello Android", Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( LoginActivity.this, "Hello Android", Toast.LENGTH_SHORT ).show();
                 //edtPhoneNumber.setText( "122272987" );
                 String phoneNumber = edtPhoneNumber.getText().toString();
                 int phoneNumberLength = phoneNumber.length();
                 if (phoneNumberLength > 9) {
-                    Toast.makeText( MainActivity.this, "Login Successfull", Toast.LENGTH_SHORT ).show();
-                    Intent intent = new Intent( MainActivity.this, UpdateUserinfoActivity.class );
+                    Toast.makeText( LoginActivity.this, "Login Successfull", Toast.LENGTH_SHORT ).show();
+                    Intent intent = new Intent( LoginActivity.this, UpdateUserinfoActivity.class );
                     //them dư liệu vào trong intent(nhét phonenumber vào intent)
                     intent.putExtra( "phoneNumberPassWord", phoneNumber );
+
+                    //luu trạng thái đăng nhập
+                    setLogin();
+
                     startActivity( intent );
+
+                    LoginActivity.this.finish();
                 } else {
-                    Toast.makeText( MainActivity.this, "Login Failed", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT ).show();
                 }
             }
         } );
-
-
+    }
+    void setLogin(){
+        SharedPreferences sharedPreferences =getSharedPreferences( "dekko",MODE_PRIVATE );
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+        editor.putBoolean( "isLogin",true );
+        editor.apply();
     }
 }

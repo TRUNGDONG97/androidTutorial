@@ -1,0 +1,241 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F0B7"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40sp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tài khoản"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nguyễn Văn A"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="0329563942"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_edit_information"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_btn_bg"
+                android:text="Sửa thông tin" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/untilities_bg"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_history"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_history"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lịch sử giao dịch"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:layout_toRightOf="@id/img_history"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#B4A9A9"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_question"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_questions"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hỏi đáp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/img_question"
+                android:layout_centerVertical="true" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#B4A9A9"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_guide"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_guide"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hướng dẫn sử dụng"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/img_guide"
+                android:layout_centerVertical="true" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#B4A9A9"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/img_logout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_logout"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng xuất"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:layout_toRightOf="@id/img_logout"
+                android:layout_centerVertical="true" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="#B4A9A9"
+                android:layout_alignParentRight="true" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thành viên"
+        android:textColor="#00BCD4"
+        android:layout_marginTop="20dp"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="10dp"
+        android:text="Chào mừng bạn đã là thành viên của Deckko tích điểm để lên hạng cao hơn và có nhiều quyền lợi hơn"
+        android:textSize="15dp"/>
+
+</LinearLayout>
