@@ -4,7 +4,7 @@
     android:background="#F3F0B7">
 
     <LinearLayout
-        android:id="@+id/ll_tool"
+        android:id="@+id/ll_untilities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -33,6 +33,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" (0329563942)"
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/tool_bg"
+            android:background="@drawable/untilities_bg"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -81,21 +82,29 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:background="#000" />
+
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
                 android:stretchColumns="*">
 
-                <TableRow android:layout_width="40dp">
+                <TableRow>
 
                     <ImageView
                         android:layout_gravity="left"
-                        android:src="@drawable/ic_tich_diem" />
+                        android:src="@drawable/ic_earn_points" />
 
                     <ImageView
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_use_points" />
+                        android:src="@drawable/ic_use_point" />
 
                     <ImageView
                         android:layout_gravity="right"
@@ -123,19 +132,19 @@
                         android:textStyle="bold" />
                 </TableRow>
 
-                <TableRow android:layout_width="40dp">
+                <TableRow>
 
                     <ImageView
                         android:layout_gravity="left"
-                        android:src="@drawable/ic_question" />
+                        android:src="@drawable/ic_questions" />
 
                     <ImageView
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_order" />
+                        android:src="@drawable/ic_cart" />
 
                     <ImageView
                         android:layout_gravity="right"
-                        android:src="@drawable/ic_price" />
+                        android:src="@drawable/ic_label" />
                 </TableRow>
 
                 <TableRow>
@@ -158,6 +167,7 @@
                         android:textColor="#000"
                         android:textStyle="bold" />
                 </TableRow>
+
             </TableLayout>
         </LinearLayout>
     </LinearLayout>
@@ -165,8 +175,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_menu"
-        android:layout_below="@id/ll_tool"
+        android:layout_above="@+id/img_menu"
+        android:layout_below="@+id/ll_untilities"
         android:layout_marginHorizontal="40dp"
         android:scrollbars="vertical">
 
@@ -191,7 +201,7 @@
                 <TextView
                     android:id="@+id/tv_notification_news"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:text="Khuyến mãi lên đến 50%"
@@ -205,7 +215,8 @@
                     android:layout_below="@+id/tv_notification_news"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/detail_btn_bg">
+                    android:background="@drawable/untilities_bg"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -225,6 +236,8 @@
                         android:tint="#F80404" />
 
                 </RelativeLayout>
+
+
             </RelativeLayout>
 
             <TextView
@@ -250,14 +263,13 @@
                     android:textColor="#FAF9F9"
                     android:textSize="25sp"
                     android:textStyle="bold" />
-
                 <RelativeLayout
                     android:layout_width="170dp"
                     android:layout_height="50dp"
                     android:layout_below="@+id/tv_notification_promotion"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="40dp"
-                    android:background="@drawable/detail_btn_bg">
+                    android:background="@drawable/untilities_bg">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -278,18 +290,14 @@
 
                 </RelativeLayout>
             </RelativeLayout>
-
         </LinearLayout>
 
     </ScrollView>
 
     <ImageView
-        android:id="@+id/tv_menu"
+        android:id="@+id/img_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:src="@drawable/ic_menu" />
-
 </RelativeLayout>
-
-

@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class MainScreenActivity extends AppCompatActivity {
     TextView tvName;
+    TextView tvPhoneNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -17,10 +18,12 @@ public class MainScreenActivity extends AppCompatActivity {
 
     void init(){
         tvName=findViewById( R.id.tv_name );
+        tvPhoneNumber=findViewById( R.id.tv_phone_number );
     }
     void getData(){
         Intent intent=getIntent();
         User user =(User) intent.getSerializableExtra( "user" );
         tvName.setText( user.name );
+        tvPhoneNumber.setText( user.phoneNumber );
     }
 }
