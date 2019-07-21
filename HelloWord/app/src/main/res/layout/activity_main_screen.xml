@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:background="#F3F0B7">
 
     <LinearLayout
@@ -177,13 +178,13 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/img_menu"
         android:layout_below="@+id/ll_untilities"
-        android:layout_marginHorizontal="40dp"
         android:scrollbars="vertical">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginHorizontal="40dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -191,54 +192,18 @@
                 android:text="Tin tức"
                 android:textColor="#000"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
-            <RelativeLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_news"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@mipmap/img_valve">
-
-                <TextView
-                    android:id="@+id/tv_notification_news"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Khuyến mãi lên đến 50%"
-                    android:textColor="#FAF9F9"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <RelativeLayout
-                    android:layout_width="170dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tv_notification_news"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/untilities_bg"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="Chi tiết"
-                        android:textColor="#030303"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_arrow_right"
-                        android:tint="#F80404" />
-
-                </RelativeLayout>
+                android:scrollbars="none"
+                />
 
 
-            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -246,50 +211,14 @@
                 android:text="Khuyến mãi"
                 android:textColor="#000"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
-            <RelativeLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_promotions"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@mipmap/img_water_pipe">
-
-                <TextView
-                    android:id="@+id/tv_notification_promotion"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Khuyến mãi lên đến 50%"
-                    android:textColor="#FAF9F9"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-                <RelativeLayout
-                    android:layout_width="170dp"
-                    android:layout_height="50dp"
-                    android:layout_below="@+id/tv_notification_promotion"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@drawable/untilities_bg">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="Chi tiết"
-                        android:textColor="#030303"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_arrow_right"
-                        android:tint="#F80404" />
-
-                </RelativeLayout>
-            </RelativeLayout>
+                android:scrollbars="none"
+                />
         </LinearLayout>
 
     </ScrollView>

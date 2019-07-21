@@ -29,9 +29,10 @@
         android:layout_marginHorizontal="30dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
+            android:src="@mipmap/img_user"
             />
 
         <LinearLayout
