@@ -18,6 +18,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     Context context;
     ArrayList<News> newsArrayList;
 
+
+
     public NewsAdapter(Context context, ArrayList<News> newsArrayList) {
         this.context = context;
         this.newsArrayList = newsArrayList;
