@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
 public class UpdateUserinfoActivity extends AppCompatActivity {
 
@@ -70,7 +69,7 @@ public class UpdateUserinfoActivity extends AppCompatActivity {
         user.province = province;*/
 
         //ném vào  intent
-        Intent intent = new Intent( UpdateUserinfoActivity.this, MainScreenActivity.class );
+        Intent intent = new Intent( UpdateUserinfoActivity.this, HomeActivity.class );
         intent.putExtra( "user", user );
         startActivity( intent );
         UpdateUserinfoActivity.this.finish();

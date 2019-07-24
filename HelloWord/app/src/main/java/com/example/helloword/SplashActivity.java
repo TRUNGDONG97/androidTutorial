@@ -6,8 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.helloword.recycleview.HistoryActivity;
-
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -21,17 +19,17 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                /*SharedPreferences sharedPreferences=getSharedPreferences( "dekko",MODE_PRIVATE );
+                SharedPreferences sharedPreferences=getSharedPreferences( "dekko",MODE_PRIVATE );
                 boolean islogin = sharedPreferences.getBoolean( "isLogin",false );
-                if (islogin){*/
-                    Intent intent=new Intent( SplashActivity.this, HistoryActivity.class );
+                if (islogin){
+                    Intent intent=new Intent( SplashActivity.this, HomeActivity.class );
                     startActivity( intent );
                     finish();
-               /* }else {
+               }else {
                     Intent intent=new Intent( SplashActivity.this,LoginActivity.class );
                     startActivity( intent );
                     finish();
-                }*/
+                }
 
             }
         }, 1000);
