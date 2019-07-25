@@ -5,13 +5,17 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.helloword.recycleview.HistoryActivity;
 
 public class AccountActivity extends AppCompatActivity {
     TextView tvName;
     TextView tvPhoneNumber;
     RelativeLayout rlLogout;
+    ImageView ivHistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -25,6 +29,7 @@ public class AccountActivity extends AppCompatActivity {
         tvName=findViewById( R.id.tv_name );
         tvPhoneNumber=findViewById( R.id.tv_phone_number );
         rlLogout=findViewById( R.id.rl_logout );
+        ivHistory=findViewById( R.id.iv_history );
 
         rlLogout.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -39,6 +44,14 @@ public class AccountActivity extends AppCompatActivity {
                 startActivity( intent );
 
 
+            }
+        } );
+
+        ivHistory.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent( AccountActivity.this, HistoryActivity.class );
+                startActivity( intent );
             }
         } );
     }

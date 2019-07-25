@@ -48,7 +48,7 @@ public class PromotionsAdapter extends RecyclerView.Adapter<PromotionsAdapter.Pr
         ImageView imgNews;
         public PromotionsViewHolder(@NonNull View itemView) {
             super( itemView );
-            tvTitle=(TextView) itemView.findViewById( R.id.tv_title );
+            tvTitle=(TextView) itemView.findViewById( R.id.tv_title_history );
             imgNews=(ImageView) itemView.findViewById( R.id.img_news );
 
 

@@ -6,9 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.helloword.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -17,7 +19,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     ArrayList<History> data =new ArrayList<>(  );
     Context context;
 
-
+    public HistoryAdapter(ArrayList<History> data, Context context) {
+        this.data = data;
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -32,8 +37,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     @Override
     public void onBindViewHolder(@NonNull HistoryViewhoder historyViewhoder, int i) {
         History history= data.get( i );
+        Picasso.get().load( history.icon ).into( historyViewhoder.imgHistory );
         historyViewhoder.tvTitle.setText( history.title );
-        historyViewhoder.tvPoint.setText( history.point+"");
+        historyViewhoder.tvBalance.setText( "Số dư : "+history.balance );
+        historyViewhoder.tvCode.setText( "Mã giao dịch: "+history.code );
+        historyViewhoder.tvDate.setText( history.createDate );
+        historyViewhoder.tvPoint.setText( "+"+history.point+"đ");
+
     }
 
     @Override
@@ -44,9 +54,18 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public class HistoryViewhoder extends RecyclerView.ViewHolder {
         TextView tvTitle;
         TextView tvPoint;
+        ImageView imgHistory;
+        TextView tvCode;
+        TextView tvDate;
+        TextView tvBalance;
+
         public HistoryViewhoder(@NonNull View itemView) {
             super( itemView );
-            tvTitle=itemView.findViewById( R.id.tv_title );
+            imgHistory=itemView.findViewById( R.id.img_item_history );
+            tvTitle=itemView.findViewById( R.id.tv_title_history );
+            tvBalance=itemView.findViewById( R.id.tv_balance );
+            tvCode=itemView.findViewById( R.id.tv_code );
+            tvDate=itemView.findViewById( R.id.tv_date );
             tvPoint=itemView.findViewById( R.id.tv_point );
 
         }

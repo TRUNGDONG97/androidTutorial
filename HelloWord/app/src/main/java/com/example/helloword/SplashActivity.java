@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.helloword.recycleview.HistoryActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -32,6 +34,6 @@ public class SplashActivity extends AppCompatActivity {
                 }
 
             }
-        }, 1000);
+        }, 500);
     }
 }
