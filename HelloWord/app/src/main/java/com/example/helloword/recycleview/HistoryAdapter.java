@@ -14,35 +14,36 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewhoder> {
 
-    ArrayList<History> data =new ArrayList<>(  );
+    ArrayList<History> data;
     Context context;
 
     public HistoryAdapter(ArrayList<History> data, Context context) {
         this.data = data;
         this.context = context;
-    }
+}
 
     @NonNull
     @Override
     public HistoryViewhoder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        /*View historyView= LayoutInflater.from(viewGroup.getContext()).inflate( R.layout.history_item_layout,viewGroup,false );
-        return new HistoryViewhoder( historyView );*/
-        View view=LayoutInflater.from( context ).inflate( R.layout.history_item_layout,viewGroup,false );
-        HistoryViewhoder historyViewhoder=new HistoryViewhoder( view );
+
+        View view = LayoutInflater.from( context ).inflate( R.layout.history_item_layout, viewGroup, false );
+        HistoryViewhoder historyViewhoder = new HistoryViewhoder( view );
         return historyViewhoder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull HistoryViewhoder historyViewhoder, int i) {
-        History history= data.get( i );
+        History history = data.get( i );
         Picasso.get().load( history.icon ).into( historyViewhoder.imgHistory );
         historyViewhoder.tvTitle.setText( history.title );
-        historyViewhoder.tvBalance.setText( "Số dư : "+history.balance );
-        historyViewhoder.tvCode.setText( "Mã giao dịch: "+history.code );
+        historyViewhoder.tvBalance.setText( "Số dư : " + history.balance );
+        historyViewhoder.tvCode.setText( "Mã giao dịch : " + history.code );
         historyViewhoder.tvDate.setText( history.createDate );
-        historyViewhoder.tvPoint.setText( "+"+history.point+"đ");
+        historyViewhoder.tvPoint.setText( "+" + history.point + "đ" );
 
     }
 
@@ -52,21 +53,18 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     }
 
     public class HistoryViewhoder extends RecyclerView.ViewHolder {
-        TextView tvTitle;
-        TextView tvPoint;
-        ImageView imgHistory;
-        TextView tvCode;
-        TextView tvDate;
-        TextView tvBalance;
+        TextView tvTitle, tvCode, tvPoint, tvDate, tvBalance;
+        CircleImageView imgHistory;
+
 
         public HistoryViewhoder(@NonNull View itemView) {
             super( itemView );
-            imgHistory=itemView.findViewById( R.id.img_item_history );
-            tvTitle=itemView.findViewById( R.id.tv_title_history );
-            tvBalance=itemView.findViewById( R.id.tv_balance );
-            tvCode=itemView.findViewById( R.id.tv_code );
-            tvDate=itemView.findViewById( R.id.tv_date );
-            tvPoint=itemView.findViewById( R.id.tv_point );
+            imgHistory = itemView.findViewById( R.id.img_icon );
+            tvTitle = itemView.findViewById( R.id.tv_title_history );
+            tvBalance = itemView.findViewById( R.id.tv_balance );
+            tvCode = itemView.findViewById( R.id.tv_code );
+            tvDate = itemView.findViewById( R.id.tv_date );
+            tvPoint = itemView.findViewById( R.id.tv_point );
 
         }
     }
