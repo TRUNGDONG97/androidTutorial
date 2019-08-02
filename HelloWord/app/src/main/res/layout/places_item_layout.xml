@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_places"
     android:layout_width="match_parent"
-    android:layout_height="55dp"
+    android:layout_height="wrap_content"
     android:background="#FF9800">
 
     <TextView
@@ -31,14 +31,14 @@
     <TextView
         android:id="@+id/tv_detail"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Detail"
+        android:layout_height="wrap_content"
+        android:text="is more \n Detail"
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="#fff"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:background="#FA0404"
+        android:background="@drawable/detail_bg"
         android:layout_marginVertical="8dp"
         android:layout_marginHorizontal="8dp"
         android:paddingHorizontal="2dp"/>

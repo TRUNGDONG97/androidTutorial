@@ -36,17 +36,17 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.placeViewH
         Places places = arrayList.get( i );
         placeViewHodel.placeName.setText( places.placeName );
         if (places.isMoreDetail == 0 ) {
-            placeViewHodel.moreDetail.setVisibility( View.INVISIBLE );
+            placeViewHodel.moreDetail.setVisibility( View.GONE );
            // placeViewHodel.isPromotion.setVisibility( View.INVISIBLE );
             placeViewHodel.llPlaces.setBackgroundColor( Color.YELLOW);
 
         } else {
             placeViewHodel.moreDetail.setVisibility( View.VISIBLE );
             //placeViewHodel.isPromotion.setVisibility( View.INVISIBLE );
-            placeViewHodel.llPlaces.setBackgroundColor( Color.GREEN );
+            placeViewHodel.llPlaces.setBackgroundColor( Color.parseColor( "#FF9800" ) );
         }
         if (places.isPromotion==0){
-            placeViewHodel.isPromotion.setVisibility( View.INVISIBLE );
+            placeViewHodel.isPromotion.setVisibility( View.GONE );
         }else {
             placeViewHodel.isPromotion.setVisibility( View.VISIBLE );
         }
