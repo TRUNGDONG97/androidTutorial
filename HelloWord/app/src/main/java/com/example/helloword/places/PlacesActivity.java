@@ -47,7 +47,7 @@ public class PlacesActivity extends AppCompatActivity {
     }
     void prepareData(){
         //lấy dữ kiệu từ file json có sẵn
-        JSONObject placeJson= Util.fileToJson( R.raw.places,this );
+        //JSONObject placeJson= Util.fileToJson( R.raw.places,this );
         //lấy từ trên server
         JSONObject jsonObject =new JSONObject(  );
         try {

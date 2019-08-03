@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.helloword.Contact.ContactActivity;
 import com.example.helloword.places.PlacesActivity;
 import com.example.helloword.recycleview.HistoryActivity;
 
@@ -25,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                /* SharedPreferences sharedPreferences=getSharedPreferences( "dekko",MODE_PRIVATE );
                 boolean islogin = sharedPreferences.getBoolean( "isLogin",false );
                 if (islogin){*/
-                    Intent intent=new Intent( SplashActivity.this, PlacesActivity.class );
+                    Intent intent=new Intent( SplashActivity.this, ContactActivity.class );
                     startActivity( intent );
                     finish();
                /*}else {
