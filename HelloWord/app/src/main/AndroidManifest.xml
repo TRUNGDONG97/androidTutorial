@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Contact.ContactActivity"></activity>
+        <activity android:name=".CategoryActivity"></activity>
+        <activity android:name=".UsefullPhone.UsefullPhoneActivity" />
         <activity android:name=".places.PlacesActivity" />
         <activity android:name=".recycleview.HistoryActivity" />
         <activity

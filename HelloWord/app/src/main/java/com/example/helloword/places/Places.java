@@ -1,15 +1,19 @@
 package com.example.helloword.places;
 
-public class Places {
-    String placeName;
-    int isMoreDetail;
-    int isPromotion;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-    public Places(String placeName, int isMoreDetail, int isPromotion) {
-        this.placeName = placeName;
-        this.isMoreDetail = isMoreDetail;
-        this.isPromotion = isPromotion;
-    }
+public class Places {
+
+    @SerializedName("placeName")
+    @Expose
+    public String placeName;
+    @SerializedName("isMoreDetail")
+    @Expose
+    public Integer isMoreDetail;
+    @SerializedName("isPromotion")
+    @Expose
+    public Integer isPromotion;
 
     public String getPlaceName() {
         return placeName;
@@ -19,19 +23,19 @@ public class Places {
         this.placeName = placeName;
     }
 
-    public int getIsMoreDetail() {
+    public Integer getIsMoreDetail() {
         return isMoreDetail;
     }
 
-    public void setIsMoreDetail(int isMoreDetail) {
+    public void setIsMoreDetail(Integer isMoreDetail) {
         this.isMoreDetail = isMoreDetail;
     }
 
-    public int getIsPromotion() {
+    public Integer getIsPromotion() {
         return isPromotion;
     }
 
-    public void setIsPromotion(int isPromotion) {
+    public void setIsPromotion(Integer isPromotion) {
         this.isPromotion = isPromotion;
     }
 }

@@ -4,18 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.helloword.R;
-import com.example.helloword.util.Util;
+import com.example.helloword.ServiceAPI;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -61,7 +58,23 @@ public class PlacesActivity extends AppCompatActivity {
                 .addConverterFactory( GsonConverterFactory.create() )
                 .baseUrl( "http://150.95.115.192/api/ ")
                 .build();
-        retrofit.create( ServiceAPI.class).
+
+        retrofit.create( ServiceAPI.class )
+                .getListPlaces( jsonObject ).enqueue( new Callback<ListPlaceResponse>() {
+            @Override
+            public void onResponse(Call<ListPlaceResponse> call, Response<ListPlaceResponse> response) {
+                placesArrayList.addAll( response.body().result );
+                configRv();
+            }
+
+            @Override
+            public void onFailure(Call<ListPlaceResponse> call, Throwable t) {
+
+            }
+        } );
+
+
+       /* retrofit.create( ServiceAPI.class).
                 getListPlaces( jsonObject ).enqueue( new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -90,7 +103,7 @@ public class PlacesActivity extends AppCompatActivity {
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 //trường hợp thất bại
             }
-        } );
+        } );*/
 
 
         /*try {

@@ -1,4 +1,4 @@
-package com.example.helloword.Contact;
+package com.example.helloword.UsefullPhone;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,11 +12,11 @@ import com.example.helloword.R;
 
 import java.util.ArrayList;
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHoder>{
-    ArrayList<Contact> data;
+public class UsefullPhoneAdapter extends RecyclerView.Adapter<UsefullPhoneAdapter.ContactViewHoder>{
+    ArrayList<UsefullPhone> data;
     Context context;
 
-    public ContactAdapter(ArrayList<Contact> data, Context context) {
+    public UsefullPhoneAdapter(ArrayList<UsefullPhone> data, Context context) {
         this.data = data;
         this.context = context;
     }
