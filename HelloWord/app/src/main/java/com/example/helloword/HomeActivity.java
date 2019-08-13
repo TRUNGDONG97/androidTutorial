@@ -73,7 +73,7 @@ public class HomeActivity extends AppCompatActivity {
             in_s.read(b);
             String strData=new String( b );
             JSONObject  homeJSON =stringToJson( strData );
-            JSONObject resultJSON= homeJSON.getJSONObject( "result" );
+            JSONObject resultJSON= homeJSON.getJSONObject( "categoryResult" );
             JSONObject cusDetailJSON = resultJSON.getJSONObject( "customerDetail" );
 
             String cusNameJSON=cusDetailJSON.getString( "customerName" );

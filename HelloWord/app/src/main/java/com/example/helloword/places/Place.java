@@ -3,7 +3,7 @@ package com.example.helloword.places;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Places {
+public class Place {
 
     @SerializedName("placeName")
     @Expose

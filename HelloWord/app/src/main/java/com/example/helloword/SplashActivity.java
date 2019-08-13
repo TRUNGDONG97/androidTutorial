@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.helloword.UsefullPhone.UsefullPhone;
-import com.example.helloword.UsefullPhone.UsefullPhoneActivity;
+import com.example.helloword.Fragment.MainActivity;
+import com.example.helloword.category.CategoryActivity;
 import com.example.helloword.places.PlacesActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
                /* SharedPreferences sharedPreferences=getSharedPreferences( "dekko",MODE_PRIVATE );
                 boolean islogin = sharedPreferences.getBoolean( "isLogin",false );
                 if (islogin){*/
-                    Intent intent=new Intent( SplashActivity.this, CategoryActivity.class );
+                    Intent intent=new Intent( SplashActivity.this, MainActivity.class );
                     startActivity( intent );
                     finish();
                /*}else {

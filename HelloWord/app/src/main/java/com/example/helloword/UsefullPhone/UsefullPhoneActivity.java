@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.helloword.R;
-import com.example.helloword.ServiceAPI;
+import com.example.helloword.network.ServiceAPI;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -68,7 +68,7 @@ public class UsefullPhoneActivity extends AppCompatActivity {
                 try {
                     String res = response.body().string();
                     JSONObject responeJSON = new JSONObject( res );
-                    JSONArray arrayContactJSON = responeJSON.getJSONArray( "result" );
+                    JSONArray arrayContactJSON = responeJSON.getJSONArray( "categoryResult" );
                     for (int i = 0; i < arrayContactJSON.length(); i++) {
                         JSONObject contactJSON = arrayContactJSON.getJSONObject( i );
                         String name = contactJSON.getString( "name" );

@@ -6,7 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.helloword.R;
-import com.example.helloword.ServiceAPI;
+import com.example.helloword.category.Banner;
+import com.example.helloword.category.CategoryResponse;
+import com.example.helloword.network.RetrofitClient;
+import com.example.helloword.network.ServiceAPI;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PlacesActivity extends AppCompatActivity {
 
     RecyclerView rvPlaces;
-    ArrayList<Places> placesArrayList=new ArrayList<>(  );
+    ArrayList<Place> placeArrayList =new ArrayList<>(  );
+    ArrayList<Banner> banners=new ArrayList<>(  );
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -37,38 +41,27 @@ public class PlacesActivity extends AppCompatActivity {
 
     }
     void configRv(){
-        PlacesAdapter placesAdapter=new PlacesAdapter( this,placesArrayList );
+        PlacesAdapter placesAdapter=new PlacesAdapter( this, placeArrayList );
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager( this,LinearLayoutManager.VERTICAL,false );
         rvPlaces.setLayoutManager( linearLayoutManager );
         rvPlaces.setAdapter( placesAdapter );
     }
     void prepareData(){
         //lấy dữ kiệu từ file json có sẵn
-        //JSONObject placeJson= Util.fileToJson( R.raw.places,this );
-        //lấy từ trên server
-        JSONObject jsonObject =new JSONObject(  );
-        try {
-            jsonObject.put( "cateID",0 );
-            jsonObject.put( "placeID",0 );
-            jsonObject.put( "searchKey","" );
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Retrofit retrofit=new Retrofit.Builder()
-                .addConverterFactory( GsonConverterFactory.create() )
-                .baseUrl( "http://150.95.115.192/api/ ")
-                .build();
+        //JSONObject placeJson= Util.fileToJson( R.raw.place,this );
 
-        retrofit.create( ServiceAPI.class )
-                .getListPlaces( jsonObject ).enqueue( new Callback<ListPlaceResponse>() {
+        JSONObject jsonObject=new JSONObject(  );
+        RetrofitClient.GetRetrofitClient().create( ServiceAPI.class ).
+                getCategoryResult( jsonObject ).enqueue( new Callback<CategoryResponse>() {
             @Override
-            public void onResponse(Call<ListPlaceResponse> call, Response<ListPlaceResponse> response) {
-                placesArrayList.addAll( response.body().result );
+            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
+                banners.addAll( response.body().categoryResult.getBanner() );
+                getplace();
                 configRv();
             }
 
             @Override
-            public void onFailure(Call<ListPlaceResponse> call, Throwable t) {
+            public void onFailure(Call<CategoryResponse> call, Throwable t) {
 
             }
         } );
@@ -84,14 +77,14 @@ public class PlacesActivity extends AppCompatActivity {
                     String res=response.body().string();
                     JSONObject jsonResponse =new JSONObject( res );
 
-                    JSONArray  placeArrayJSON=jsonResponse.getJSONArray( "result" );
+                    JSONArray  placeArrayJSON=jsonResponse.getJSONArray( "categoryResult" );
                     for (int i = 0; i <placeArrayJSON.length() ; i++) {
                         JSONObject placesJSON = placeArrayJSON.getJSONObject( i );
                         String placeName = placesJSON.getString( "placeName" );
                         int isMoreDetail = placesJSON.getInt( "isMoreDetail" );
                         int isPromotion = placesJSON.getInt( "isPromotion" );
-                        Places places = new Places( placeName, isMoreDetail, isPromotion );
-                        placesArrayList.add( places );
+                        Place place = new Place( placeName, isMoreDetail, isPromotion );
+                        placeArrayList.add( place );
                     }
                     configRv();
                 } catch (Exception e) {
@@ -107,18 +100,23 @@ public class PlacesActivity extends AppCompatActivity {
 
 
         /*try {
-            JSONArray  placeArrayJSON=placeJson.getJSONArray( "result" );
+            JSONArray  placeArrayJSON=placeJson.getJSONArray( "categoryResult" );
             for (int i = 0; i <placeArrayJSON.length() ; i++) {
                 JSONObject placesJSON=placeArrayJSON.getJSONObject( i );
                 String placeName=placesJSON.getString( "placeName" );
                 int isMoreDetail=placesJSON.getInt( "isMoreDetail" );
                 int isPromotion=placesJSON.getInt( "isPromotion" );
-                Places places=new Places( placeName,isMoreDetail,isPromotion );
-                placesArrayList.add( places );
+                Place place=new Place( placeName,isMoreDetail,isPromotion );
+                placeArrayList.add( place );
 
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }*/
+    }
+    void getplace(){
+        for (int i = 0; i <banners.size() ; i++) {
+            placeArrayList.add(banners.get( i ).place);
+        }
     }
 }

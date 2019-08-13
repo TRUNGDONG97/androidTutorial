@@ -1,6 +1,7 @@
-package com.example.helloword;
+package com.example.helloword.network;
 
 import com.example.helloword.UsefullPhone.ListUsefullPhoneResponse;
+import com.example.helloword.category.CategoryResponse;
 import com.example.helloword.places.ListPlaceResponse;
 
 import org.json.JSONObject;
@@ -15,5 +16,7 @@ public interface ServiceAPI {
     Call<ListPlaceResponse>getListPlaces(@Body JSONObject body);
     @POST("Service/GetListContact")
     Call<ListUsefullPhoneResponse>getListContact(@Body JSONObject body);
+    @POST("Service/GetListCategoryAndBanner")
+    Call<CategoryResponse>getCategoryResult(@Body JSONObject body);
 
 }

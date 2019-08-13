@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.placeViewHodel> {
     Context context;
-    ArrayList<Places> arrayList;
+    ArrayList<Place> arrayList;
 
-    public PlacesAdapter(Context context, ArrayList<Places> arrayList) {
+    public PlacesAdapter(Context context, ArrayList<Place> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
     }
@@ -33,9 +33,9 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.placeViewH
 
     @Override
     public void onBindViewHolder(@NonNull placeViewHodel placeViewHodel, int i) {
-        Places places = arrayList.get( i );
-        placeViewHodel.placeName.setText( places.placeName );
-        if (places.isMoreDetail == 0 ) {
+        Place place = arrayList.get( i );
+        placeViewHodel.placeName.setText( place.placeName );
+        if (place.isMoreDetail == 0 ) {
             placeViewHodel.moreDetail.setVisibility( View.GONE );
            // placeViewHodel.isPromotion.setVisibility( View.INVISIBLE );
             placeViewHodel.llPlaces.setBackgroundColor( Color.YELLOW);
@@ -45,7 +45,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.placeViewH
             //placeViewHodel.isPromotion.setVisibility( View.INVISIBLE );
             placeViewHodel.llPlaces.setBackgroundColor( Color.parseColor( "#FF9800" ) );
         }
-        if (places.isPromotion==0){
+        if (place.isPromotion==0){
             placeViewHodel.isPromotion.setVisibility( View.GONE );
         }else {
             placeViewHodel.isPromotion.setVisibility( View.VISIBLE );

@@ -45,7 +45,7 @@ public class HistoryActivity extends AppCompatActivity {
     void prepareData() {
         JSONObject jsonHistory = Util.fileToJson( R.raw.history, this );
         try {
-            JSONArray resultJSON = jsonHistory.getJSONArray( "result" );
+            JSONArray resultJSON = jsonHistory.getJSONArray( "categoryResult" );
 
             for (int i = 0; i < resultJSON.length(); i++) {
 
@@ -78,7 +78,7 @@ public class HistoryActivity extends AppCompatActivity {
             in_s.read(b);
             String strData=new String( b );
             JSONObject historyJSON=stringToJson(strData);
-            JSONArray resultJSON=historyJSON.getJSONArray( "result" );
+            JSONArray resultJSON=historyJSON.getJSONArray( "categoryResult" );
 
 
 

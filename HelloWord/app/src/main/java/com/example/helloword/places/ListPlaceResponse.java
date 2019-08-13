@@ -13,9 +13,9 @@ public class ListPlaceResponse {
     @SerializedName("code")
     @Expose
     public Integer code;
-    @SerializedName("result")
+    @SerializedName("categoryResult")
     @Expose
-    public List<Places> result = null;
+    public List<Place> result = null;
     @SerializedName("message")
     @Expose
     public String message;

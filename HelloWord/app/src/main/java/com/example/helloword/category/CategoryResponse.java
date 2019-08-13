@@ -1,11 +1,9 @@
-package com.example.helloword.UsefullPhone;
-
-import java.util.List;
+package com.example.helloword.category;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ListUsefullPhoneResponse {
+public class CategoryResponse {
 
     @SerializedName("status")
     @Expose
@@ -13,9 +11,9 @@ public class ListUsefullPhoneResponse {
     @SerializedName("code")
     @Expose
     public Integer code;
-    @SerializedName("categoryResult")
+    @SerializedName("result")
     @Expose
-    public List<UsefullPhone> result = null;
+    public CategoryResult categoryResult;
     @SerializedName("message")
     @Expose
     public String message;
