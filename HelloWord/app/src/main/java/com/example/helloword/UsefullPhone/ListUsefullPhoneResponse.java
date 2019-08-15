@@ -13,7 +13,7 @@ public class ListUsefullPhoneResponse {
     @SerializedName("code")
     @Expose
     public Integer code;
-    @SerializedName("categoryResult")
+    @SerializedName("result")
     @Expose
     public List<UsefullPhone> result = null;
     @SerializedName("message")

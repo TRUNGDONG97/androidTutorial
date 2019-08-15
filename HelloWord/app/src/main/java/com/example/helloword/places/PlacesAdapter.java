@@ -15,8 +15,8 @@ import com.example.helloword.R;
 import java.util.ArrayList;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.placeViewHodel> {
-    Context context;
-    ArrayList<Place> arrayList;
+    private Context context;
+    private ArrayList<Place> arrayList;
 
     public PlacesAdapter(Context context, ArrayList<Place> arrayList) {
         this.context = context;
