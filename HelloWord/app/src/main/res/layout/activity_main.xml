@@ -3,17 +3,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/fm_place"
-        android:name="com.example.helloword.Fragment.PlaceFragment"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/home_tab"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="wrap_content">
 
-    <fragment
-        android:id="@+id/fm_contact"
-        android:name="com.example.helloword.Fragment.ContactFragment"
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

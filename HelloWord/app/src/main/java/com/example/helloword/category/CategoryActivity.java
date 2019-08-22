@@ -44,6 +44,7 @@ public class CategoryActivity extends AppCompatActivity {
                /*categoriesData.addAll(response.body().categoryResult.category);
                bannersData.addAll( response.body().categoryResult.banner );
                configRv();*/
+               categoriesData.clear();
                 categoriesData.addAll(response.body().categoryResult.category);
                 configRv();
             }

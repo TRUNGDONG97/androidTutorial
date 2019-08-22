@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,11 @@ import com.example.helloword.category.Banner;
 import com.example.helloword.category.CategoryResponse;
 import com.example.helloword.network.RetrofitClient;
 import com.example.helloword.network.ServiceAPI;
+import com.example.helloword.places.ListPlaceResponse;
 import com.example.helloword.places.Place;
 import com.example.helloword.places.PlacesAdapter;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -31,6 +34,9 @@ import retrofit2.Response;
 
 
 public class PlaceFragment extends Fragment {
+    public PlaceFragment() {
+    }
+
     RecyclerView rvPlaces;
     ArrayList<Place> placeArrayList = new ArrayList<>();
     ArrayList<Banner> banners = new ArrayList<>();
@@ -65,24 +71,30 @@ public class PlaceFragment extends Fragment {
         //JSONObject placeJson= Util.fileToJson( R.raw.place,this );
 
         JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put( "cateID",0 );
+            jsonObject.put( "placeID",0 );
+            jsonObject.put( "searchKey","" );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+       /* {
+            "cateID":0,
+                "placeID":0,
+                "searchKey":""
+        }*/
         RetrofitClient.GetRetrofitClient().create( ServiceAPI.class ).
-                getCategoryResult( jsonObject ).enqueue( new Callback<CategoryResponse>() {
+               getListPlaces( jsonObject ).enqueue( new Callback<ListPlaceResponse>() {
             @Override
-            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
-
-
-
-                banners.addAll( response.body().categoryResult.getBanner() );
-                getplace();
-                configRv();
+            public void onResponse(Call<ListPlaceResponse> call, Response<ListPlaceResponse> response) {
+               // Log.d( "", "onResponse: " );
             }
 
             @Override
-            public void onFailure(Call<CategoryResponse> call, Throwable t) {
-
+            public void onFailure(Call<ListPlaceResponse> call, Throwable t) {
+                //Log.d( "", "onFailure: " );
             }
         } );
-
 
        /* retrofit.create( ServiceAPI.class).
                 getListPlaces( jsonObject ).enqueue( new Callback<ResponseBody>() {
@@ -132,11 +144,11 @@ public class PlaceFragment extends Fragment {
         }*/
     }
 
-    void getplace() {
+    /*void getplace() {
         for (int i = 0; i < banners.size(); i++) {
             placeArrayList.add( banners.get( i ).place );
         }
-    }
+    }*/
 }
 
 

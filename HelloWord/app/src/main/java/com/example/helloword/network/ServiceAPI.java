@@ -3,6 +3,7 @@ package com.example.helloword.network;
 import com.example.helloword.UsefullPhone.ListUsefullPhoneResponse;
 import com.example.helloword.category.CategoryResponse;
 import com.example.helloword.places.ListPlaceResponse;
+import com.example.helloword.promotion.PromotionResponse;
 
 import org.json.JSONObject;
 
@@ -18,5 +19,7 @@ public interface ServiceAPI {
     Call<ListUsefullPhoneResponse>getListContact(@Body JSONObject body);
     @POST("Service/GetListCategoryAndBanner")
     Call<CategoryResponse>getCategoryResult(@Body JSONObject body);
+    @POST("Service/GetListPromotion")
+    Call<PromotionResponse>getPromotionResult(@Body JSONObject body);
 
 }

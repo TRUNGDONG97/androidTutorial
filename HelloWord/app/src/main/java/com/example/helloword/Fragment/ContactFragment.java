@@ -32,6 +32,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * A simple {@link Fragment} subclass.
  */
 public class ContactFragment extends Fragment {
+
+   /* private static final String KEY_COLOR = "key_color";*/
+
+    public ContactFragment() {
+    }
+
+    public static ContactFragment newInstance() {
+        ContactFragment fragment = new ContactFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments( args );
+        return fragment;
+    }
+
     RecyclerView rvContact;
     ArrayList<UsefullPhone> data = new ArrayList<>();
     View vRoot;
@@ -39,7 +52,7 @@ public class ContactFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        vRoot= inflater.inflate( R.layout.fragment_contact, container, false );
+        vRoot = inflater.inflate( R.layout.fragment_contact, container, false );
         init();
         prepareData();
         return vRoot;
@@ -59,10 +72,10 @@ public class ContactFragment extends Fragment {
             e.printStackTrace();
         }
 
-        RetrofitClient.GetRetrofitClient().create( ServiceAPI.class )
-                .getListContact( jsonObject ).enqueue( new Callback<ListUsefullPhoneResponse>() {
+        RetrofitClient.GetRetrofitClient().create( ServiceAPI.class ).getListContact( jsonObject ).enqueue( new Callback<ListUsefullPhoneResponse>() {
             @Override
             public void onResponse(Call<ListUsefullPhoneResponse> call, Response<ListUsefullPhoneResponse> response) {
+                data.clear();
                 data.addAll( response.body().result );
                 configRv();
             }

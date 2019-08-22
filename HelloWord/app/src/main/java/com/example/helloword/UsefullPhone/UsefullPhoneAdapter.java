@@ -12,7 +12,7 @@ import com.example.helloword.R;
 
 import java.util.ArrayList;
 
-public class UsefullPhoneAdapter extends RecyclerView.Adapter<UsefullPhoneAdapter.ContactViewHoder>{
+public class UsefullPhoneAdapter extends RecyclerView.Adapter<UsefullPhoneAdapter.ContactViewHolder>{
     ArrayList<UsefullPhone> data;
     Context context;
 
@@ -23,16 +23,16 @@ public class UsefullPhoneAdapter extends RecyclerView.Adapter<UsefullPhoneAdapte
 
     @NonNull
     @Override
-    public ContactViewHoder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view= LayoutInflater.from( context ).inflate( R.layout.contact_item_layout,viewGroup, false);
-        ContactViewHoder contactViewHoder=new ContactViewHoder( view );
-        return contactViewHoder;
+        ContactViewHolder contactViewHolder =new ContactViewHolder( view );
+        return contactViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ContactViewHoder contactViewHoder, int i) {
-        contactViewHoder.tvNameContact.setText( data.get( i ).name );
-        contactViewHoder.tvPhoneContact.setText( data.get( i ).phone );
+    public void onBindViewHolder(@NonNull ContactViewHolder contactViewHolder, int i) {
+        contactViewHolder.tvNameContact.setText( data.get( i ).name );
+        contactViewHolder.tvPhoneContact.setText( data.get( i ).phone );
 
     }
 
@@ -41,9 +41,9 @@ public class UsefullPhoneAdapter extends RecyclerView.Adapter<UsefullPhoneAdapte
         return data.size();
     }
 
-    public class ContactViewHoder extends RecyclerView.ViewHolder {
+    public class ContactViewHolder extends RecyclerView.ViewHolder {
         TextView tvNameContact,tvPhoneContact;
-        public ContactViewHoder(@NonNull View itemView) {
+        public ContactViewHolder(@NonNull View itemView) {
             super( itemView );
             tvNameContact= itemView.findViewById( R.id.tv_name_contact );
             tvPhoneContact= itemView.findViewById( R.id.tv_phone_contact );

@@ -52,7 +52,7 @@ public class UsefullPhoneActivity extends AppCompatActivity {
                 enqueue( new Callback<ListUsefullPhoneResponse>() {
                     @Override
                     public void onResponse(Call<ListUsefullPhoneResponse> call, Response<ListUsefullPhoneResponse> response) {
-                        data.addAll(response.body().result );
+                       data.addAll(response.body().result );
                         configRv();
                     }
 

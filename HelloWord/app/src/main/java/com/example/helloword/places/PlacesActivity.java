@@ -55,6 +55,7 @@ public class PlacesActivity extends AppCompatActivity {
                 getCategoryResult( jsonObject ).enqueue( new Callback<CategoryResponse>() {
             @Override
             public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
+                banners.clear();
                 banners.addAll( response.body().categoryResult.getBanner() );
                 getplace();
                 configRv();
