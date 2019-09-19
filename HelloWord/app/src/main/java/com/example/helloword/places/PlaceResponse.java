@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ListPlaceResponse {
+public class PlaceResponse {
 
     @SerializedName("status")
     @Expose
@@ -13,7 +13,7 @@ public class ListPlaceResponse {
     @SerializedName("code")
     @Expose
     public Integer code;
-    @SerializedName("categoryResult")
+    @SerializedName("result")
     @Expose
     public List<Place> result = null;
     @SerializedName("message")

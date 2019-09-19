@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.helloword.R;
 import com.example.helloword.category.Banner;
-import com.example.helloword.category.CategoryResponse;
 import com.example.helloword.network.RetrofitClient;
 import com.example.helloword.network.ServiceAPI;
-import com.example.helloword.places.ListPlaceResponse;
 import com.example.helloword.places.Place;
+import com.example.helloword.places.PlaceResponse;
 import com.example.helloword.places.PlacesAdapter;
 
 import org.json.JSONException;
@@ -38,8 +36,7 @@ public class PlaceFragment extends Fragment {
     }
 
     RecyclerView rvPlaces;
-    ArrayList<Place> placeArrayList = new ArrayList<>();
-    ArrayList<Banner> banners = new ArrayList<>();
+    ArrayList<Place> placeArrayList=new ArrayList<>(  );
     View vRoot;
 
     @Override
@@ -53,102 +50,47 @@ public class PlaceFragment extends Fragment {
         prepareData();
         return vRoot;
     }
-
-    void init() {
-        rvPlaces = vRoot.findViewById( R.id.rv_places );
-
+    private void init(){
+        rvPlaces=vRoot.findViewById( R.id.rv_places );
     }
-
-    void configRv() {
-        PlacesAdapter placesAdapter = new PlacesAdapter( getActivity(), placeArrayList );
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager( getActivity(), LinearLayoutManager.VERTICAL, false );
+    private void configRv(){
+        PlacesAdapter placesAdapter=new PlacesAdapter( getActivity(),placeArrayList );
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager( getActivity(),LinearLayoutManager.VERTICAL,false );
         rvPlaces.setLayoutManager( linearLayoutManager );
         rvPlaces.setAdapter( placesAdapter );
     }
-
-    void prepareData() {
-        //lấy dữ kiệu từ file json có sẵn
-        //JSONObject placeJson= Util.fileToJson( R.raw.place,this );
-
-        JSONObject jsonObject = new JSONObject();
+    private void prepareData() {
+        JSONObject jsonObject=new JSONObject(  );
+        /*{
+            "cateID":0,
+                "placeID":0,
+                "searchKey":""
+        }*/
         try {
-            jsonObject.put( "cateID",0 );
+            jsonObject.put("cateID",0);
             jsonObject.put( "placeID",0 );
             jsonObject.put( "searchKey","" );
         } catch (JSONException e) {
             e.printStackTrace();
         }
-       /* {
-            "cateID":0,
-                "placeID":0,
-                "searchKey":""
-        }*/
         RetrofitClient.GetRetrofitClient().create( ServiceAPI.class ).
-               getListPlaces( jsonObject ).enqueue( new Callback<ListPlaceResponse>() {
+                getListPlaces( jsonObject ).enqueue( new Callback<PlaceResponse>() {
             @Override
-            public void onResponse(Call<ListPlaceResponse> call, Response<ListPlaceResponse> response) {
-               // Log.d( "", "onResponse: " );
+            public void onResponse(Call<PlaceResponse> call, Response<PlaceResponse> response) {
+                placeArrayList.addAll( response.body().result );
+                configRv();
             }
 
             @Override
-            public void onFailure(Call<ListPlaceResponse> call, Throwable t) {
-                //Log.d( "", "onFailure: " );
+            public void onFailure(Call<PlaceResponse> call, Throwable t) {
+
             }
         } );
 
-       /* retrofit.create( ServiceAPI.class).
-                getListPlaces( jsonObject ).enqueue( new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
-                //trường hơp thành công
-                try {
-                    String res=response.body().string();
-                    JSONObject jsonResponse =new JSONObject( res );
-
-                    JSONArray  placeArrayJSON=jsonResponse.getJSONArray( "categoryResult" );
-                    for (int i = 0; i <placeArrayJSON.length() ; i++) {
-                        JSONObject placesJSON = placeArrayJSON.getJSONObject( i );
-                        String placeName = placesJSON.getString( "placeName" );
-                        int isMoreDetail = placesJSON.getInt( "isMoreDetail" );
-                        int isPromotion = placesJSON.getInt( "isPromotion" );
-                        Place place = new Place( placeName, isMoreDetail, isPromotion );
-                        placeArrayList.add( place );
-                    }
-                    configRv();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                //trường hợp thất bại
-            }
-        } );*/
-
-
-        /*try {
-            JSONArray  placeArrayJSON=placeJson.getJSONArray( "categoryResult" );
-            for (int i = 0; i <placeArrayJSON.length() ; i++) {
-                JSONObject placesJSON=placeArrayJSON.getJSONObject( i );
-                String placeName=placesJSON.getString( "placeName" );
-                int isMoreDetail=placesJSON.getInt( "isMoreDetail" );
-                int isPromotion=placesJSON.getInt( "isPromotion" );
-                Place place=new Place( placeName,isMoreDetail,isPromotion );
-                placeArrayList.add( place );
-
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
     }
 
-    /*void getplace() {
-        for (int i = 0; i < banners.size(); i++) {
-            placeArrayList.add( banners.get( i ).place );
-        }
-    }*/
+
+
 }
 
 

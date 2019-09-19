@@ -26,7 +26,7 @@ public class PlacesActivity extends AppCompatActivity {
 
     RecyclerView rvPlaces;
     ArrayList<Place> placeArrayList =new ArrayList<>(  );
-    ArrayList<Banner> banners=new ArrayList<>(  );
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -55,10 +55,7 @@ public class PlacesActivity extends AppCompatActivity {
                 getCategoryResult( jsonObject ).enqueue( new Callback<CategoryResponse>() {
             @Override
             public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
-                banners.clear();
-                banners.addAll( response.body().categoryResult.getBanner() );
-                getplace();
-                configRv();
+
             }
 
             @Override
@@ -115,9 +112,9 @@ public class PlacesActivity extends AppCompatActivity {
             e.printStackTrace();
         }*/
     }
-    void getplace(){
+   /* void getplace(){
         for (int i = 0; i <banners.size() ; i++) {
             placeArrayList.add(banners.get( i ).place);
         }
-    }
+    }*/
 }

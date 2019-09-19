@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.helloword.Fragment.BottomTabActivity;
 import com.example.helloword.Fragment.MainActivity;
+import com.example.helloword.Fragment.NavigationDrawerActivity;
 import com.example.helloword.places.PlacesActivity;
 
 public class SplashActivity extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                /* SharedPreferences sharedPreferences=getSharedPreferences( "dekko",MODE_PRIVATE );
                 boolean islogin = sharedPreferences.getBoolean( "isLogin",false );
                 if (islogin){*/
-                    Intent intent=new Intent( SplashActivity.this, BottomTabActivity.class );
+                    Intent intent=new Intent( SplashActivity.this, NavigationDrawerActivity.class );
                     startActivity( intent );
                     finish();
                /*}else {
