@@ -81,7 +81,7 @@ public class PlacesActivity extends AppCompatActivity {
                         String placeName = placesJSON.getString( "placeName" );
                         int isMoreDetail = placesJSON.getInt( "isMoreDetail" );
                         int isPromotion = placesJSON.getInt( "isPromotion" );
-                        Place place = new Place( placeName, isMoreDetail, isPromotion );
+                        PlaceCategory place = new PlaceCategory( placeName, isMoreDetail, isPromotion );
                         placeArrayList.add( place );
                     }
                     configRv();
@@ -104,7 +104,7 @@ public class PlacesActivity extends AppCompatActivity {
                 String placeName=placesJSON.getString( "placeName" );
                 int isMoreDetail=placesJSON.getInt( "isMoreDetail" );
                 int isPromotion=placesJSON.getInt( "isPromotion" );
-                Place place=new Place( placeName,isMoreDetail,isPromotion );
+                PlaceCategory place=new PlaceCategory( placeName,isMoreDetail,isPromotion );
                 placeArrayList.add( place );
 
             }

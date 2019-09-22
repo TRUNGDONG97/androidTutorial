@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                /* SharedPreferences sharedPreferences=getSharedPreferences( "dekko",MODE_PRIVATE );
                 boolean islogin = sharedPreferences.getBoolean( "isLogin",false );
                 if (islogin){*/
-                    Intent intent=new Intent( SplashActivity.this, NavigationDrawerActivity.class );
+                    Intent intent=new Intent( SplashActivity.this, BottomTabActivity.class );
                     startActivity( intent );
                     finish();
                /*}else {

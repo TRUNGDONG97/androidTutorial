@@ -70,7 +70,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements Navig
                 break;
             }
             case R.id.nav_place: {
-                displayFragment( placeFragment, "Place" );
+                displayFragment( placeFragment, "PlaceCategory" );
                 break;
             }
             case R.id.nav_promotion: {
